@@ -90,11 +90,11 @@ namespace bnetlauncher.Clients
                                 Thread.Sleep(500);
                             }
 
-                            Logger.Information("Maximizing battle.net window.");
-                            WinApi.NativeMethods.ShowWindow(proc.MainWindowHandle, WinApi.NativeMethods.SW_SHOWMAXIMIZED);
+                            Logger.Information("Restoring battle.net window.");
+                            WinApi.NativeMethods.ShowWindow(proc.MainWindowHandle, WinApi.NativeMethods.SW_RESTORE);
 
                             // To get this color check debug bmp in Program.DataPath
-                            var button_color = Color.FromArgb(255, 0, 116, 224);
+                            var button_color = Color.FromArgb(255, 17, 117, 221);
 
                             var button_location = Point.Empty;
                             for (int i = 0; i < 10; i++)
