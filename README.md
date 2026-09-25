@@ -56,6 +56,7 @@ with minimal/no interaction with the battle.net client while still being automat
 |w3             | Warcraft 3: Reforged                                  |
 |wow            | World of Warcraft                                     |
 |wowclassic     | World of Warcraft Classic                             |
+|wowclassicbeta | World of Warcraft Classic Beta                        |
 |wowclassicera  | World of Warcraft Classic Era                         |
 |wowclassictitan| World of Warcraft Titan Reforged Classic              |
 |wow_anniversary| World of Warcraft Burning Crusade Anniversary         |
@@ -110,10 +111,10 @@ you can open the location by pasting the path into explorer or the run dialog in
 
 There's also the following additional options provided by command line switches:
 
-* `--timeout <seconds>, -t <seconds>` changes how many seconds it tries to look for the game before giving an error (15 seconds by default).
-* `--notask, -n` starts the launcher directly instead of using task scheduler (starting the client directly will cause steam to apply the overlay
+* `-timeout <seconds>, -t <seconds>` changes how many seconds it tries to look for the game before giving an error (15 seconds by default).
+* `-notask, -n` starts the launcher directly instead of using task scheduler (starting the client directly will cause steam to apply the overlay
   to the client and consider you playing the game until the client exists)
-* `--leaveopen, -l` leaves the client open after launcher the game. Warning: If combined with `--notask` option it will show you as playing on steam until
+* `-leaveopen, -l` leaves the client open after launcher the game. Warning: If combined with `-notask` option it will show you as playing on steam until
   you close the client.
 
 ## Uninstalling
@@ -135,7 +136,7 @@ To customize the configurations create a gamedb.ini file in:
 * `%localappdata%\madalien.com\bnetlauncher\gamedb.ini`
 * the directory where the bnetlauncher executable is located.
 
-A `gamesdb.ini.sample` is distributed with bnetlauncher containing a copy of the built in configuration.
+A `gamesdb.ini.example` is distributed with bnetlauncher containing a copy of the built in configuration.
 
 **Important:** The defaults entries are not changeable. bnetlauncher will always override any changed value with it's internal gamesdb.
 However it is possible to create a new entry using a different name to use custom options.
