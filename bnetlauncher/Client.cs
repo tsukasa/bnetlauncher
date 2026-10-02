@@ -192,7 +192,17 @@ namespace bnetlauncher
 
         /// <summary>
         /// Launches a game with the given client specific command.
-        /// Each client will tipicly override this to acomodate teh specificities.
+        /// Each client will tipicly override this to accommodate the specificities.
+        /// </summary>
+        /// <param name="game">Game configuration used to start the game.</param>
+        public virtual bool Launch(Game game)
+        {
+            return Launch(game.Cmd);
+        }
+
+        /// <summary>
+        /// Launches a game using the client-specific command.
+        /// Each client will tipicly override this to accommodate the specificities.
         /// </summary>
         /// <param name="cmd">cmd used to start the game.</param>
         public virtual bool Launch(string cmd)

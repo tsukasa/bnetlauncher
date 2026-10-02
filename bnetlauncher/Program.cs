@@ -72,6 +72,7 @@ namespace bnetlauncher
         {
             new Clients.BnetClient(),
             new Clients.BnetClient2(),
+            new Clients.BnetClient3(),
             new Clients.EpicClient(),
 
             // DISABLED: WIP not good enough to work let alone release
@@ -348,7 +349,13 @@ namespace bnetlauncher
             if (!selected_game.Options.Contains("nolaunch"))
             {
                 Logger.Information($"Issuing game launch command '{selected_game.Cmd}' at '{launch_request_date.ToString("hh:mm:ss.ffff", CultureInfo.InvariantCulture)}'");
-                selected_client.Launch(selected_game.Cmd);
+                bool launched = selected_client.Launch(selected_game);
+                if (!launched && selected_client is Clients.BnetClient3)
+                {
+                    ShowMessageAndExit("Couldn't invoke the Battle.net Play button using UI Automation.\n\n" +
+                        "Check the game's playbutton name pattern, including the version if needed, " +
+                        "and make sure the game is ready to play in Battle.net.", "UI Automation launch failed");
+                }
             }
             else
             {
@@ -625,6 +632,7 @@ namespace bnetlauncher
                     Client = section.Keys["client"],
                     Cmd = section.Keys["cmd"],
                     Exe = section.Keys["exe"],
+                    PlayButtonName = section.Keys["playbutton"],
                     Options = section.Keys["options"]
                 });
             }

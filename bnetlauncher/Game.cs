@@ -105,6 +105,11 @@ namespace bnetlauncher
             }
         }
 
+        public string PlayButtonName {
+            get;
+            set;
+        }
+
         public string Options
         {
             get

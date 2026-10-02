@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="Clients\EpicClient.cs" />
     <Compile Include="Clients\BnetClient2.cs" />
+    <Compile Include="Clients\BnetClient3.cs" />
     <Compile Include="Clients\BnetClient.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Clients\UplayClient.cs" />
@@ -120,6 +121,10 @@
       <HintPath>..\packages\ini-parser.2.5.2\lib\net20\INIFileParser.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Interop.UIAutomationClient">
+      <HintPath>..\packages\Interop.UIAutomationClient.10.19041.0\lib\net45\Interop.UIAutomationClient.dll</HintPath>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.Win32.TaskScheduler, Version=2.8.20.0, Culture=neutral, PublicKeyToken=c416bc1b32d97233, processorArchitecture=MSIL">
       <HintPath>..\packages\TaskScheduler.2.8.20\lib\net452\Microsoft.Win32.TaskScheduler.dll</HintPath>
     </Reference>

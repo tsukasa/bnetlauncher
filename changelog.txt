@@ -1,5 +1,10 @@
 Version History
 ---------------
+
+2.27-tsukasa
+* Changed gamesdb.ini for World of Warcraft, Classic and Classic Beta
+* Call games through Battle.net with UIA3 to circumvent issues with changing layouts
+
 2.26
 + Added for World of Warcraft Burning Crusade Anniversary support courtesy of AdamsGH
 * Optimizations for launching games dependent on button click courtesy of AdamsGH

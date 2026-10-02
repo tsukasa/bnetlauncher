@@ -74,8 +74,7 @@ not running bnetlauncher will close it, if it's running it will leave it running
 ## Public Test Realm and World of Warcraft Classic
 
 With the release of the the new client in 2021 the previous methods to launch PTR and Classic version no longer work.
-This version includes experimental fix for the issue that may not always work. If game doesn't launch automaticall
-manual interaction to press the play button will be required.
+This version includes experimental fix for the issue that may not always work. If game doesn't launch automatically manual interaction to press the play button will be required.
 
 ## Troubleshooting
 
@@ -150,13 +149,15 @@ Example entry:
   cmd=VIPR
   exe=BlackOps4.exe
   options=noargs,waitforexit
+  playbutton=Update:*|Play:*
 ```
 Explaining what each part does:
 
 * `[codbo4]`  name used with bnetlauncher that identifies the settings to use (ex: `bnetlauncher.exe codbo4`)
 * `name=Call of Duty: Black Ops 4` a friendly name for the game used for error and help messages
-* `client=battlenet` the client module used to launch the game, currently there's battlenet, battlenet2 and epic,
+* `client=battlenet` the client module used to launch the game, currently there's battlenet, battlenet2, battlenet3 and epic,
    difference between the two battlenet is that battlenet2 can launch ptr/classic version of games but could be less reliable then battlenet.
+   `battlenet3` opens the game's product page and invokes its Play button using native Windows UI Automation (UIA3).
 * `cmd=VIPR` command to launch the game, for the battlenet it's a special id that allows direct launching of the game, be aware that this value is
   case sensitive! With battlenet2 it's the game's productCode. Those values can be discovered by looking at logs in different locations:
   * for battlenet `'%LOCALAPPDATA%\Battle.net\Logs\battle.net*.log'`
@@ -164,6 +165,12 @@ Explaining what each part does:
   * for epic, create a desktop shortcut (on launcher manage on tree dot menu then create shortcut) and extract the id from the URL field in the created shortcut properties, it will be something like: `com.epicgames.launcher://apps/<id will be here>?action=launch&silent=true`
 * `exe=BlackOps4.exe` game exe that bnetlauncher will look for after launch, can use `%` as a wildcard ie `Diablo III%.exe`
     to support 32 and 64 bit builds of the game.
+* `playbutton=Update:*|Play:*` optional UI Automation widget name pattern, required when using `client=battlenet3`.
+  Matching is case insensitive; `*` matches any text and `?` matches one character. The entire name must match the pattern.
+  You can match multiple patterns by using `|` as a delimiter.
+  Only a single visible, enabled button is invoked. Multiple visible matches cause the launch to fail rather than pick an arbitrary game.
+  If different games share a name, include the version, for example `playbutton=*Play: WoW: Forever*`.
+  Update this version after game updates; a stale pattern times out after one minute. Other clients ignore this parameter.
 * `options=noargs,waitforexit` list of comma separated options, currently supported:
   * `noargs` doesn't throw an error when retrieving blank arguments from the game (needed for blackops4.exe)
   * `waitforexit` leave bnetlauncher open and waiting until the game existing (needed for destiny 2 to show you as playing)
@@ -190,3 +197,4 @@ Explaining what each part does:
 * github Aqvilinus for Warcraft I/II remastered support
 * github magnww for World of Warcraft Titan Reforged Classic support
 * github AdamsGH for World of Warcraft Burning Crusade Anniversary and optimizations
+* github tsukasa for BnetClient3
