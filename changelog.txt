@@ -1,6 +1,9 @@
 Version History
 ---------------
 
+2.27-1-tsukasa
+* Added support for Regex \w+ and \d+ to match language-independent
+
 2.27-tsukasa
 * Changed gamesdb.ini for World of Warcraft, Classic and Classic Beta
 * Call games through Battle.net with UIA3 to circumvent issues with changing layouts

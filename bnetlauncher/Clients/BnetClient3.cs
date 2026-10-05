@@ -79,10 +79,12 @@ namespace bnetlauncher.Clients
 
             try
             {
-                var namePattern = new Regex("\\A" + Regex.Escape(game.PlayButtonName.Trim())
-                    .Replace("\\|", "|")
-                    .Replace("\\*", ".*")
-                    .Replace("\\?", ".") + "\\z",
+                var namePattern = new Regex(@"\A" + Regex.Escape(game.PlayButtonName.Trim())
+                    .Replace(@"\\d\+", @"\d+")
+                    .Replace(@"\\w\+", @"\w+")
+                    .Replace(@"\|", "|")
+                    .Replace(@"\*", ".*")
+                    .Replace(@"\?", ".") + @"\z",
                     RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Singleline,
                     TimeSpan.FromSeconds(1));
 
