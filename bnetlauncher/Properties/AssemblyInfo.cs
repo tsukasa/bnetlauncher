@@ -50,6 +50,6 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 [assembly: AssemblyVersion("2.27.*")]
-[assembly: AssemblyInformationalVersion("2.27-1-tsukasa")]
+[assembly: AssemblyInformationalVersion("2.27-2-tsukasa")]
 //[assembly: AssemblyFileVersion("2.27.*")]
 [assembly: NeutralResourcesLanguage("en")]
