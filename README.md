@@ -59,6 +59,7 @@ with minimal/no interaction with the battle.net client while still being automat
 |wowclassicbeta | World of Warcraft Classic Beta                        |
 |wowclassicera  | World of Warcraft Classic Era                         |
 |wowclassictitan| World of Warcraft Titan Reforged Classic              |
+|wowforever     | World of Warcraft: Forever                            |
 |wow_anniversary| World of Warcraft Burning Crusade Anniversary         |
 |wowptr         | World of Warcraft Public Test Realm                   |
 
